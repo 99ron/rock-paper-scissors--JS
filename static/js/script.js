@@ -1,6 +1,6 @@
 // Code for the game
 
-// function for computer result
+// Function for computer result
 function computerPlay() {
     choices = ["rock", "paper", "scissor"]
 
@@ -8,26 +8,42 @@ function computerPlay() {
     return computerChosen
 }
 
-
+// This is the logic for the game and checks who's won the round.
 function playRound(playerSelection, computerSelection) {
 
+    if(playerSelection === computerSelection ) {
+        console.log("It's a draw! You both chose the same!");
+    }
+
+    if(playerSelection == "rock" && computerSelection == "scissor"
+    || playerSelection == "scissor" && computerSelection == "paper" 
+    || playerSelection == "paper" && computerSelection == "rock") {
+        console.log("You won with " + playerSelection + " against PC's " + computerSelection);
+
+    } else if(computerSelection == "rock" && playerSelection == "scissor"
+    || computerSelection == "scissor" && playerSelection == "paper" 
+    || computerSelection == "paper" && playerSelection == "rock") {
+        console.log("The PC won with " + computerSelection + " against your " + playerSelection);
+    }
 }
 
-// Checks user input, sets it to lowercase and then confirms it matches the if statement.
-const playerSelection = prompt("Please enter: rock, paper, scissors").toLocaleLowerCase();
+// .::Start of the code::.
+// Checks user input, sets it to lowercase and then confirms it matches the options.
+const playerSelection = prompt("Please enter: Rock, Paper, Scissor").toLocaleLowerCase();
 if(playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissor") {
-//    Code goes here.
+    
+    // Gets the CPU answer from the function above.
+    const computerSelection = computerPlay();
+
+    // Runs the play round function 
+    playRound(playerSelection, computerSelection);
+
 } else {
     alert("That's not an option, refresh the page.");
 }
 
-// displays what the user has typed after it's been processed.
-console.log(playerSelection);
 
 
-const computerSelection = computerPlay();
 
 
-// run function
-computerPlay()
 
