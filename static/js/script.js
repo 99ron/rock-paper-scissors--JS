@@ -2,9 +2,12 @@
 
 // function for computer result
 function computerPlay() {
-    console.log("Made it to the function!")
+    choices = ["rock", "paper", "scissor"]
+
+    computerChosen = choices[Math.floor(Math.random() * choices.length)];
+    console.log(computerChosen)
 }
 
-// run funtion
+// run function
 computerPlay()
 
